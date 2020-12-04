@@ -18,7 +18,7 @@ namespace Avtoria
 
             try
             {
-                command.CommandText = File.ReadAllText(@"C:\ШАГ\Avtoria\Avtoria\creatTabl\Tabl_Driver.sql");
+                command.CommandText = File.ReadAllText(@"C:\step\Avtoria\Avtoria\creatTabl\Tabl_Driver.sql");
                 command.ExecuteNonQuery();
                 Console.WriteLine("Таблицу Tabl_Driver - созданно");
 
@@ -30,7 +30,7 @@ namespace Avtoria
 
             try
             {
-                command.CommandText = File.ReadAllText(@"C:\ШАГ\Avtoria\Avtoria\creatTabl\Tabl_Avto.sql");
+                command.CommandText = File.ReadAllText(@"C:\step\Avtoria\Avtoria\creatTabl\Tabl_Avto.sql");
                 command.ExecuteNonQuery();
                 Console.WriteLine("Таблицу Tabl_Avto.sql - созданно");
             }
@@ -41,7 +41,7 @@ namespace Avtoria
             }
             try
             {
-                command.CommandText = File.ReadAllText(@"C:\ШАГ\Avtoria\Avtoria\creatTabl\Tabl_Avto_Driver.sql");
+                command.CommandText = File.ReadAllText(@"C:\step\Avtoria\Avtoria\creatTabl\Tabl_Avto_Driver.sql");
                 command.ExecuteNonQuery();
                 Console.WriteLine("Таблицу Tabl_Avto_Driver.sql - созданно");
             }

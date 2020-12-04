@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,14 @@ namespace Avtoria
     
             class Program
         {
-            static void Main(string[] args)
+        
+
+        static void Main(string[] args)
             {
+            
                 string strConnection = "  Data Source=PK;Initial Catalog=Avtoria;Integrated Security=True";
-                try
+            //string strConnection = "Data Source=serverpu816.database.windows.net;Initial Catalog=test;User ID=pu816;Password=Qwerty1*";
+            try
                 {
                     SqlConnection conn = new SqlConnection(strConnection);
                     conn.Open();
@@ -21,9 +26,7 @@ namespace Avtoria
 
                     CreatTabl creatTabl = new CreatTabl();
                     creatTabl.Add_Tabl(conn);
-
-
-                ///для заполнения таблиц нужно подключить папку с инсертами
+                                
                 InsertTabl insertTabl = new InsertTabl();
                 insertTabl.Insert_Tabl(conn);
 

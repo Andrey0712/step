@@ -3,5 +3,6 @@ EXEC dbo.sp_executesql @statement = N'
 CREATE TABLE Driver (
 Id INT NOT NULL IDENTITY PRIMARY KEY ,
 Name NVARCHAR(MAX) NOT NULL CHECK(LEN(Name)>0),
-Address NVARCHAR(MAX) NOT NULL CHECK(LEN(Address) > 0)
+Address NVARCHAR(MAX) NOT NULL CHECK(LEN(Address) > 0),
+PhoneNumber NVARCHAR(MAX) NOT NULL CHECK(LEN(PhoneNumber) > 0)
 )'
