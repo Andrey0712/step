@@ -1,0 +1,14 @@
+INSERT INTO Avto (Name,Namber) VALUES 
+('BMV' , 'BK 1234 PO'),
+('Ford' , 'BK 2345 PO'),
+('Audi' , 'BK 6589 PO'),
+('Opel' , 'BK 7852 PO'),
+('Volkswagen' , 'BK 9632 PO'),
+('Renault' , 'BK 1478 PO'),
+('Renault' , 'BK 1111 PO'),
+('Opel' , 'BK 7852 PO'),
+('Renault' , 'BK 8888 PO'),
+('Opel' , 'BK 7070 PO'),
+('Opel' , 'BK 9191 PO'),
+('Volkswagen' , 'BK 3287 PO'),
+('Volkswagen' , 'BK 9999 PO')
