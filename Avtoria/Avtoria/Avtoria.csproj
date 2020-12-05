@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreatTabl.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="DriverServer.cs" />
     <Compile Include="InsertTabl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

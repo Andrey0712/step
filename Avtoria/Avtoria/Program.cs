@@ -11,8 +11,7 @@ namespace Avtoria
     
             class Program
         {
-        
-
+      
         static void Main(string[] args)
             {
             
@@ -38,9 +37,43 @@ namespace Avtoria
                     throw;
                 }
 
+            DriverServer driverService = new DriverServer(strConnection);
+
+            int action = 0;
+            do
+            {
+                Console.WriteLine("0. Выход");
+                Console.WriteLine("1. Работаем с табличкой Driver");
+                Console.WriteLine("2. Работаем с табличкой Avto");
+                Console.WriteLine("3. Работаем с табличкой Avto_Driver");
+                Console.Write("->_");
+                action = int.Parse(Console.ReadLine());
+                switch (action)
+                {
+                    case 1:
+                        {
+                            driverService.MenuDriver();
+                            break;
+                        }
+                    case 2:
+                        {
+                            
+                            break;
+                        }
+                    case 3:
+                        {
+                            
+                            break;
+                        }
+                   
+                }
+
+            } while (action != 0);
+
+           
 
 
-            }
+        }
         }
 
     
