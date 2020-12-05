@@ -78,14 +78,70 @@ namespace Avtoria
 
 
 
+        //public void Update(int id, Driver driver)
+        //{
+
+        //    string query2 = "  UPDATE [dbo].[Driver] " +
+        //        $"SET Name = '{driver.Name}', Address = '{driver.Address}'," +
+        //        $" PhoneNumber = '{driver.PhoneNumber}' " +
+        //        $"WHERE Id = {id}; ";
+        //    SqlCommand command = new SqlCommand(query2, _conn);
+        //    command.ExecuteNonQuery();
+        //    int res2 = command.ExecuteNonQuery();
+        //    if (res2 > 0)
+        //    {
+        //        Console.WriteLine("Успішно редактованно в БД");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Виникли проблеми при редактуванні");
+        //    }
+
+        //}
+
         public void Update(int id, Driver driver)
         {
 
-            string query2 = "  UPDATE [dbo].[Driver] " +
-                $"SET Name = '{driver.Name}', Address = '{driver.Address}'," +
-                $" PhoneNumber = '{driver.PhoneNumber}' " +
-                $"WHERE Id = {id}; ";
-            SqlCommand command = new SqlCommand(query2, _conn);
+            string query2 = "  UPDATE [dbo].[Driver] "+$"" ;
+
+            bool isBegin = true;
+            if(!string.IsNullOrEmpty(driver.Name))
+            {
+                isBegin = false;
+                query2 += $"SET Name = N'{driver.Name}'";
+            }
+            if (!string.IsNullOrEmpty(driver.Address))
+            {
+                if (isBegin) 
+                { 
+                    query2 += "SET ";
+                    isBegin = false;
+
+                }
+                else
+                {
+                    query2 += ", ";
+                }
+                
+                query2 += $"Address = N'{driver.Address}'";
+            }
+            if (!string.IsNullOrEmpty(driver.PhoneNumber))
+            {
+                if (isBegin)
+                {
+                    query2 += "SET ";
+                    isBegin = false;
+
+                }
+                else
+                {
+                    query2 += ", ";
+                }
+
+                query2 += $"PhoneNumber = N'{driver.PhoneNumber}'";
+            }
+            query2+= $"WHERE Id = {id}; ";
+            SqlCommand command = new SqlCommand(query2 , _conn);
             command.ExecuteNonQuery();
             int res2 = command.ExecuteNonQuery();
             if (res2 > 0)
@@ -97,6 +153,11 @@ namespace Avtoria
                 Console.WriteLine("Виникли проблеми при редактуванні");
             }
 
+        }
+
+        internal List<Avto> GetAll_avto()
+        {
+            throw new NotImplementedException();
         }
 
         private static int id;
@@ -161,5 +222,7 @@ namespace Avtoria
 
             } while (action != 0);
         }
+
+        
     }
 }

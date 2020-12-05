@@ -38,7 +38,8 @@ namespace Avtoria
                 }
 
             DriverServer driverService = new DriverServer(strConnection);
-
+            AvtoServis avtoService = new AvtoServis(strConnection);
+            Avto_driverServis a_d_Servis = new Avto_driverServis(strConnection);
             int action = 0;
             do
             {
@@ -57,12 +58,12 @@ namespace Avtoria
                         }
                     case 2:
                         {
-                            
+                            avtoService.MenuAvto();
                             break;
                         }
                     case 3:
                         {
-                            
+                            a_d_Servis.MenuAvto_Driver();
                             break;
                         }
                    

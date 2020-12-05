@@ -11,15 +11,15 @@ namespace Avtoria
          public Driver()
         {
                 
-        }      
-
-        public Driver(int id, string name, string address, string phoneNumber)
-        {
-            Id = id;
-            Name = name;
-            Address = address;
-            PhoneNumber = phoneNumber;
         }
+
+        //public Driver(int id, string name, string address, string phoneNumber)
+        //{
+        //    Id = id;
+        //    Name = name;
+        //    Address = address;
+        //    PhoneNumber = phoneNumber;
+        //}
 
         public int Id { get; set; }
         public string Name { get; set; }
