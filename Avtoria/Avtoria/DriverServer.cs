@@ -16,6 +16,8 @@ namespace Avtoria
             _conn.Open();
         }
 
+
+
         public List<Driver> GetAll()
         {
             List<Driver> list = new List<Driver>();
@@ -155,11 +157,7 @@ namespace Avtoria
 
         }
 
-        internal List<Avto> GetAll_avto()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         private static int id;
         public void MenuDriver()
         {
@@ -174,6 +172,7 @@ namespace Avtoria
                 Console.WriteLine("2. Добавить");
                 Console.WriteLine("3. Удалить");
                 Console.WriteLine("4. Корекция");
+                Console.WriteLine("5. Поиск");
                 Console.Write("->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -218,11 +217,55 @@ namespace Avtoria
                             driverService.Update(res2, driver);
                             break;
                         }
+                    case 5:
+                        {
+                            Driver ds = new Driver();
+                            Console.Write("Введите имя: ");
+                            ds.Name = Console.ReadLine();
+                            Console.Write("Укажите адрес: ");
+                            ds.Address = Console.ReadLine();
+                            Console.Write("Укажите номер телефона: ");
+                            ds.PhoneNumber = Console.ReadLine();
+                            var list = driverService.Search(ds);
+                            foreach (var item in list)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            break;
+                        }
                 }
 
             } while (action != 0);
         }
 
-        
+        public List<Driver> Search(Driver ds)
+        {
+            List<Driver> list = new List<Driver>();
+            string query = "Select Id, Name, Address, PhoneNumber From Driver";
+
+            bool isBegin = true;
+            if(!string.IsNullOrEmpty(ds.Name))
+            {
+                isBegin = false;
+                query += $" Where Name LIKE N'{ds.Name}%'";
+            }
+            SqlCommand command = new SqlCommand(query, _conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Driver driver = new Driver();
+                    driver.Id = int.Parse(reader["Id"].ToString());
+                    driver.Name = reader["Name"].ToString();
+                    driver.Address = reader["Address"].ToString();
+                    driver.PhoneNumber = reader["PhoneNumber"].ToString();
+                    list.Add(driver);
+                }
+            }
+            return list;
+        }
+
+
+
     }
 }

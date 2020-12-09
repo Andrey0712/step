@@ -40,42 +40,86 @@ namespace Avtoria
             DriverServer driverService = new DriverServer(strConnection);
             AvtoServis avtoService = new AvtoServis(strConnection);
             Avto_driverServis a_d_Servis = new Avto_driverServis(strConnection);
-            int action = 0;
-            do
+            Console.WriteLine("для работы с БД нажмите  Ent");
+            Console.ReadLine();
+            int counter = 1;
+            while (true)
             {
-                Console.WriteLine("0. Выход");
-                Console.WriteLine("1. Работаем с табличкой Driver");
-                Console.WriteLine("2. Работаем с табличкой Avto");
-                Console.WriteLine("3. Работаем с табличкой Avto_Driver");
-                Console.Write("->_");
-                action = int.Parse(Console.ReadLine());
-                switch (action)
+                ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
+                while (keyInfo.Key != ConsoleKey.Enter)
                 {
-                    case 1:
-                        {
-                            driverService.MenuDriver();
-                            break;
-                        }
-                    case 2:
-                        {
-                            avtoService.MenuAvto();
-                            break;
-                        }
-                    case 3:
-                        {
-                            a_d_Servis.MenuAvto_Driver();
-                            break;
-                        }
-                   
+                    Console.Clear();
+                    
+                    if (counter == 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }Console.WriteLine("1. Работаем с табличкой Driver");
+                    
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (counter == 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }Console.WriteLine("2. Работаем с табличкой Avto");
+                    
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (counter == 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.WriteLine("3. Работаем с табличкой Avto_Driver");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (counter == 4)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.WriteLine("4. Вихід");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    keyInfo = Console.ReadKey();
+                    switch (keyInfo.Key)
+                    {
+                        case ConsoleKey.DownArrow:
+                            {
+                                if (counter <5)
+                                {
+                                    counter++;
+                                }
+                                else
+                                {
+                                    counter = 1;
+                                }
+                                break;
+                            }
+                        case ConsoleKey.UpArrow:
+                            {
+                                if (counter > 1)
+                                {
+                                    counter--;
+                                }
+                                else
+                                {
+                                    counter = 4;
+                                }
+                                break;
+                            }
+
+                    }
                 }
 
-            } while (action != 0);
-
-           
-
+                switch (counter)
+                {
+                    case 1: { driverService.MenuDriver();  break; }
+                    case 2: { avtoService.MenuAvto(); break; }
+                    case 3: { a_d_Servis.MenuAvto_Driver(); break; }
+                    case 4: { return; }
+                }
+            }
 
         }
+
+
+    }
         }
 
     
-}
+

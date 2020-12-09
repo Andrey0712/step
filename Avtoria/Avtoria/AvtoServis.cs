@@ -116,7 +116,49 @@ namespace Avtoria
 
         }
 
+        public List<Avto> Search(Avto av)
+        {
+            List<Avto> list1 = new List<Avto>();
+            string query = "Select Id, Name, Namber From Avto";
+          bool isBegin = true;
+            if (!string.IsNullOrEmpty(av.Name))
+            {
+                isBegin = false;
+                query += $" Where Name LIKE N'{av.Name}%'";
+            }
+            if (!string.IsNullOrEmpty(av.Namber))
+            {
+                isBegin = false;
+                if (isBegin)
+                {
+                    query += $" and Namber LIKE N'%{av.Namber}%'";
+                   
+                }
+                else
+                {
+                    query += $" Where Namber LIKE N'%{av.Namber}%'";
+                   
+                }
 
+                
+            }
+            SqlCommand command = new SqlCommand(query, _conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Avto avto = new Avto();
+                    avto.Id = int.Parse(reader["Id"].ToString());
+                    avto.Name = reader["Name"].ToString();
+                    avto.Namber = reader["Namber"].ToString();
+
+                    list1.Add(avto);
+                }
+            }
+            return list1;
+                     
+            
+        }
 
         private static int id;
         public void MenuAvto()
@@ -132,6 +174,7 @@ namespace Avtoria
                 Console.WriteLine("2. Добавить");
                 Console.WriteLine("3. Удалить");
                 Console.WriteLine("4. Корекция");
+                Console.WriteLine("5. Поиск");
                 Console.Write("->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -147,7 +190,7 @@ namespace Avtoria
                         }
                     case 2:
                         {
-                            
+
                             Avto avto = new Avto();
                             Console.Write("Введите марку авто: ");
                             avto.Name = Console.ReadLine();
@@ -172,14 +215,28 @@ namespace Avtoria
                             avto.Name = Console.ReadLine();
                             Console.Write("Укажите номер: ");
                             avto.Namber = Console.ReadLine();
-                            
+
                             avtoService.Update_avto(res2, avto);
                             break;
-                        }
-                }
 
+                        }
+                    case 5:
+                        {
+                            Avto avto = new Avto();
+                            Console.Write("Введите имя: ");
+                            avto.Name = Console.ReadLine();
+                            Console.Write("Укажите номер: ");
+                            avto.Namber = Console.ReadLine();
+                            List<Avto> list1 = avtoService.Search(avto);
+                            foreach (var item in list1)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            break;
+                        }
+
+                }
             } while (action != 0);
         }
-    
 }
 }

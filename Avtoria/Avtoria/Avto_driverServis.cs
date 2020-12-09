@@ -116,6 +116,32 @@ namespace Avtoria
 
         }
 
+        public List<Driver> Search(Driver ds)
+        {
+            List<Driver> list = new List<Driver>();
+            string query = "Select Id, Name, Address, PhoneNumber From Driver";
+
+            bool isBegin = true;
+            if (!string.IsNullOrEmpty(ds.Name))
+            {
+                isBegin = false;
+                query += $" Where Name LIKE N'{ds.Name}%'";
+            }
+            SqlCommand command = new SqlCommand(query, _conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Driver driver = new Driver();
+                    driver.Id = int.Parse(reader["Id"].ToString());
+                    driver.Name = reader["Name"].ToString();
+                    driver.Address = reader["Address"].ToString();
+                    driver.PhoneNumber = reader["PhoneNumber"].ToString();
+                    list.Add(driver);
+                }
+            }
+            return list;
+        }
 
 
         private static int id;
