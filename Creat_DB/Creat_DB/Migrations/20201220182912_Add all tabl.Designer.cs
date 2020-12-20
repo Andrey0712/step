@@ -9,8 +9,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Creat_DB.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20201219100653_Creat tabl")]
-    partial class Creattabl
+    [Migration("20201220182912_Add all tabl")]
+    partial class Addalltabl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,18 +103,11 @@ namespace Creat_DB.Migrations
 
             modelBuilder.Entity("Creat_DB.PostTagMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
                     b.Property<int>("Post_Id")
                         .HasColumnType("integer");
 
                     b.Property<int>("Tag_Id")
                         .HasColumnType("integer");
-
-                    b.HasKey("Id");
 
                     b.HasIndex("Post_Id");
 

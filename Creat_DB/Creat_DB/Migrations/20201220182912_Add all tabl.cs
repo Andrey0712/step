@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Creat_DB.Migrations
 {
-    public partial class Creattabl : Migration
+    public partial class Addalltabl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,14 +68,11 @@ namespace Creat_DB.Migrations
                 name: "tblPostTagMap",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Post_Id = table.Column<int>(type: "integer", nullable: false),
                     Tag_Id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblPostTagMap", x => x.Id);
                     table.ForeignKey(
                         name: "FK_tblPostTagMap_tblPost_Post_Id",
                         column: x => x.Post_Id,

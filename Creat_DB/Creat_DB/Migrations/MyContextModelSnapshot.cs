@@ -101,18 +101,11 @@ namespace Creat_DB.Migrations
 
             modelBuilder.Entity("Creat_DB.PostTagMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
                     b.Property<int>("Post_Id")
                         .HasColumnType("integer");
 
                     b.Property<int>("Tag_Id")
                         .HasColumnType("integer");
-
-                    b.HasKey("Id");
 
                     b.HasIndex("Post_Id");
 
