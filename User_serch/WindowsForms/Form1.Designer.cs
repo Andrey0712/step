@@ -44,7 +44,10 @@
             this.labelDiapason = new System.Windows.Forms.Label();
             this.cbCountShowPage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.gbBTN = new System.Windows.Forms.GroupBox();
+            
             ((System.ComponentModel.ISupportInitialize)(this.FormTelSerch)).BeginInit();
+            this.gbBTN.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
@@ -203,11 +206,22 @@
             this.label1.Text = "Кількість записів";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // gbBTN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            
+            this.gbBTN.Location = new System.Drawing.Point(48, 408);
+            this.gbBTN.Name = "gbBTN";
+            this.gbBTN.Size = new System.Drawing.Size(511, 32);
+            this.gbBTN.TabIndex = 8;
+            this.gbBTN.TabStop = false;
+           
+                // 
+                // Form1
+                // 
+                this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.gbBTN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCountShowPage);
             this.Controls.Add(this.labelDiapason);
@@ -225,6 +239,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FormTelSerch)).EndInit();
+            this.gbBTN.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,6 +263,8 @@
         private System.Windows.Forms.Label labelDiapason;
         private System.Windows.Forms.ComboBox cbCountShowPage;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbBTN;
+        
     }
 }
 

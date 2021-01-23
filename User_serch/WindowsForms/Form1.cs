@@ -40,7 +40,9 @@ namespace WindowsForms
                     new CustomComboBoxItem{Id=3,Name="30"},
                 }.ToArray()
                 );
+            cbCountShowPage.SelectedIndex = 0;
 
+           
 
 
         }
@@ -95,7 +97,25 @@ namespace WindowsForms
             int start = (_page - 1) * search.CountShowOnePage + 1;
             labelDiapason.Text = $"Діапазон : {start} - {start+ search.CountShowOnePage-1}";
             lblCount.Text = "Всього записів: " + rez.CountRow.ToString();
-            
+
+
+            ///кнопки динамические
+            int totalPage = (int)Math.Ceiling((double)rez.CountRow / search.CountShowOnePage);
+            int dx = 30;
+            int positionX = 10;
+            gbBTN.Controls.Clear();
+            for (int i = 1; i <= totalPage; i++)
+            {
+                Button btn = new Button();
+                btn.Location = new System.Drawing.Point(positionX, 10);
+                btn.Name = $"btnPage{i}";
+                btn.Size = new System.Drawing.Size(30, 20);
+                btn.Text = $"{i}";
+                btn.UseVisualStyleBackColor = true;
+                btn.Click += new System.EventHandler(this.btnPage_Click);
+                gbBTN.Controls.Add(btn);
+                positionX += dx;
+            }
         }
 
         private void btnL_Click(object sender, EventArgs e)
@@ -112,6 +132,11 @@ namespace WindowsForms
             SearchUsers(GetSearchInputValue());
         }
 
-        
+        private void btnPage_Click(object sender, EventArgs e)
+        {
+            string s = (sender as Button).Text;
+            _page = int.Parse(s);
+            SearchUsers(GetSearchInputValue());
+        }
     }
 }
