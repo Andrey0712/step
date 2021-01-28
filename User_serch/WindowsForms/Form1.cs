@@ -24,6 +24,9 @@ namespace WindowsForms
         {
             context = new MyContext();
             InitializeComponent();
+            /// <summary>
+            /// добавить пользователей если 0
+            /// </summary>
             AddUsers.AddUser(context);
         }
 
@@ -32,6 +35,9 @@ namespace WindowsForms
            
             SearchUsers();
 
+            /// <summary>
+            /// комбобокс кол-во выводов на стр
+            /// </summary>
             cbCountShowPage.Items.AddRange(
                 new List<CustomComboBoxItem>
                 {
@@ -41,12 +47,12 @@ namespace WindowsForms
                 }.ToArray()
                 );
             cbCountShowPage.SelectedIndex = 0;
-
-           
-
+                    
 
         }
-
+        /// <summary>
+        /// кнопка поиск
+        /// </summary>
         private void buttonSearch_Click(object sender, EventArgs e)
         {
                         
@@ -77,7 +83,7 @@ namespace WindowsForms
         {
             FormTelSerch.Rows.Clear();
             //if (search == null)
-            //    search = new SearchDoctor();
+            //    search = new SearchUser();
             search ??= new SearchUser();
             search.Page = _page;
             var rez = UserServis.Search(context, search);
@@ -98,8 +104,10 @@ namespace WindowsForms
             labelDiapason.Text = $"Діапазон : {start} - {start+ search.CountShowOnePage-1}";
             lblCount.Text = "Всього записів: " + rez.CountRow.ToString();
 
-
-            ///кнопки динамические
+            /// <summary>
+            /// кнопки динамические
+            /// </summary>
+            
             int totalPage = (int)Math.Ceiling((double)rez.CountRow / search.CountShowOnePage);
             int dx = 30;
             int positionX = 10;
@@ -118,6 +126,10 @@ namespace WindowsForms
             }
         }
 
+        /// <summary>
+        /// кнопки << и >>
+        /// </summary>
+
         private void btnL_Click(object sender, EventArgs e)
         {
             
@@ -132,6 +144,9 @@ namespace WindowsForms
             SearchUsers(GetSearchInputValue());
         }
 
+        /// <summary>
+        /// кнопки динамические выбор стр
+        /// </summary>
         private void btnPage_Click(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
