@@ -93,12 +93,13 @@
             // labelText
             // 
             this.labelText.AutoSize = true;
+            this.labelText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelText.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
             this.labelText.Location = new System.Drawing.Point(102, 144);
             this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(252, 25);
+            this.labelText.Size = new System.Drawing.Size(254, 27);
             this.labelText.TabIndex = 4;
             this.labelText.Text = "Форма закриється через :";
             // 
@@ -116,7 +117,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Поймать  кнопку";
             this.ResumeLayout(false);
             this.PerformLayout();
