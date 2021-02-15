@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace UserRoles.Migrations
 {
-    public partial class AddAlltbl : Migration
+    public partial class Addalltable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

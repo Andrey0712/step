@@ -9,8 +9,8 @@ using UserRoles.Tabl_Context;
 namespace UserRoles.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210209210939_Add All tbl")]
-    partial class AddAlltbl
+    [Migration("20210215201846_Add all table")]
+    partial class Addalltable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
