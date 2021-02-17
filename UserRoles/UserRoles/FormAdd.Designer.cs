@@ -49,12 +49,15 @@ namespace UserRoles
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.buttonUserRole = new System.Windows.Forms.Button();
+            this.pbFotoUser = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.SuspendLayout();
             // 
             // lablAddUser
             // 
             this.lablAddUser.AutoSize = true;
-            this.lablAddUser.Location = new System.Drawing.Point(45, 21);
+            this.lablAddUser.Location = new System.Drawing.Point(41, 18);
             this.lablAddUser.Name = "lablAddUser";
             this.lablAddUser.Size = new System.Drawing.Size(104, 15);
             this.lablAddUser.TabIndex = 0;
@@ -222,11 +225,32 @@ namespace UserRoles
             this.buttonUserRole.UseVisualStyleBackColor = true;
             this.buttonUserRole.Click += new System.EventHandler(this.buttonUserRole_Click);
             // 
+            // pbFotoUser
+            // 
+            this.pbFotoUser.Location = new System.Drawing.Point(354, 40);
+            this.pbFotoUser.Name = "pbFotoUser";
+            this.pbFotoUser.Size = new System.Drawing.Size(154, 118);
+            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotoUser.TabIndex = 20;
+            this.pbFotoUser.TabStop = false;
+            this.pbFotoUser.Click += new System.EventHandler(this.pbFotoUser_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(354, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 15);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Выбрать фото";
+            // 
             // FormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(635, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbFotoUser);
             this.Controls.Add(this.buttonUserRole);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -250,6 +274,7 @@ namespace UserRoles
             this.Name = "FormAdd";
             this.Text = "FormAdd";
             this.Load += new System.EventHandler(this.FormAdd_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +302,7 @@ namespace UserRoles
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button buttonUserRole;
+        private System.Windows.Forms.PictureBox pbFotoUser;
+        private System.Windows.Forms.Label label1;
     }
 }

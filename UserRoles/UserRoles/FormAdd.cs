@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using UserRoles.Model;
@@ -13,6 +14,7 @@ namespace UserRoles
     public partial class FormAdd : Form
     {
         MyContext context = new MyContext();
+        private string fileSelected = string.Empty;
         public FormAdd()
         {
             InitializeComponent();
@@ -43,12 +45,14 @@ namespace UserRoles
 
         private void buttonSaveUser_Click(object sender, EventArgs e)
         {
+            
             context.Users.Add(
             new User
             {
                 Name = textNameUser.Text,
                 Email = textEmail.Text,
-                PhoneNamber = textPhoneNamber.Text
+                PhoneNamber = textPhoneNamber.Text,
+                Image= fileSelected
             });
             context.SaveChanges();
 
@@ -79,6 +83,39 @@ namespace UserRoles
                 });
             context.SaveChanges();
 
+        }
+
+        private void pbFotoUser_Click(object sender, EventArgs e)
+        {
+            //OpenFileDialog dlg = new OpenFileDialog();
+            //dlg.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) " +
+            //    "| *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            //if (dlg.ShowDialog() == DialogResult.OK)
+            //{
+            //    fileSelected = dlg.FileName;
+            //    //txtSearchFile.Text = dlg.FileName;
+            //    pbFotoUser.Image = Image.FromFile(dlg.FileName);
+            //    //MessageBox.Show(dlg.FileName);
+            //}
+
+            OpenFileDialog dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var extention = Path.GetExtension(dlg.FileName);
+                var imageName = Path.GetRandomFileName() + extention;
+                fileSelected = imageName;
+                string dir = Directory.GetCurrentDirectory();
+                string imageDir = "images";
+                string dirImagePath = Path.Combine(dir, imageDir);
+                if (!Directory.Exists(dirImagePath))
+                {
+                    Directory.CreateDirectory(imageDir);
+                }
+                var fileSave = Path.Combine(dir, "images", imageName);
+                File.Copy(dlg.FileName, fileSave);
+                pbFotoUser.Image = Image.FromFile($"images/{imageName}");
+
+            }
         }
     }
 }

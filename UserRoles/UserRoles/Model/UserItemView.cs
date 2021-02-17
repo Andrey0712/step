@@ -12,6 +12,7 @@ namespace UserRoles.Model
         public string PhoneNamber { get; set; }
 
         public string RoleName { get; set; }
+        
     }
 
     public class UserViewGrid

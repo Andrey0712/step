@@ -9,8 +9,8 @@ using UserRoles.Tabl_Context;
 namespace UserRoles.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210215201846_Add all table")]
-    partial class Addalltable
+    [Migration("20210217094749_All tbl")]
+    partial class Alltbl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,9 @@ namespace UserRoles.Migrations
                         .IsRequired()
                         .HasColumnType("character varying(255)")
                         .HasMaxLength(255);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()

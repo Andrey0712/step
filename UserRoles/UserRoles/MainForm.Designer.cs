@@ -30,9 +30,6 @@ namespace UserRoles
         private void InitializeComponent()
         {
             this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNameUser = new System.Windows.Forms.Label();
             this.textName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -43,6 +40,9 @@ namespace UserRoles
             this.labelShowAll = new System.Windows.Forms.Label();
             this.buttonShowAll = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,22 +58,6 @@ namespace UserRoles
             this.dgvUser.RowTemplate.Height = 25;
             this.dgvUser.Size = new System.Drawing.Size(686, 228);
             this.dgvUser.TabIndex = 0;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "Id";
-            this.ColId.Name = "ColId";
-            // 
-            // ColUser
-            // 
-            this.ColUser.HeaderText = "User";
-            this.ColUser.Name = "ColUser";
-            // 
-            // ColRole
-            // 
-            this.ColRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColRole.HeaderText = "Role";
-            this.ColRole.Name = "ColRole";
             // 
             // labelNameUser
             // 
@@ -168,6 +152,23 @@ namespace UserRoles
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id";
+            this.ColId.Name = "ColId";
+            this.ColId.Width = 25;
+            // 
+            // ColUser
+            // 
+            this.ColUser.HeaderText = "User";
+            this.ColUser.Name = "ColUser";
+            // 
+            // ColRole
+            // 
+            this.ColRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColRole.HeaderText = "Role";
+            this.ColRole.Name = "ColRole";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -196,9 +197,6 @@ namespace UserRoles
         #endregion
 
         private System.Windows.Forms.DataGridView dgvUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColRole;
         private System.Windows.Forms.Label labelNameUser;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.Button btnSearch;
@@ -209,6 +207,9 @@ namespace UserRoles
         private System.Windows.Forms.Label labelShowAll;
         private System.Windows.Forms.Button buttonShowAll;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColRole;
     }
 }
 
