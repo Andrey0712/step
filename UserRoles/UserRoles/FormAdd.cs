@@ -7,6 +7,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using UserRoles.Model;
+using UserRoles.Servis;
 using UserRoles.Tabl_Context;
 
 namespace UserRoles
@@ -14,7 +15,7 @@ namespace UserRoles
     public partial class FormAdd : Form
     {
         MyContext context = new MyContext();
-        private string fileSelected = string.Empty;
+        public string fileSelected = string.Empty;
         public FormAdd()
         {
             InitializeComponent();
@@ -45,14 +46,14 @@ namespace UserRoles
 
         private void buttonSaveUser_Click(object sender, EventArgs e)
         {
-            
+
             context.Users.Add(
             new User
             {
                 Name = textNameUser.Text,
                 Email = textEmail.Text,
                 PhoneNamber = textPhoneNamber.Text,
-                Image= fileSelected
+                Image = fileSelected
             });
             context.SaveChanges();
 
@@ -65,7 +66,7 @@ namespace UserRoles
             {
                 Name = textRoleName.Text,
                 ConcurrencyStamp = textRoleConcurrencyStamp.Text,
-                
+
             });
             context.SaveChanges();
         }
@@ -78,8 +79,8 @@ namespace UserRoles
             context.UserRoles.Add(
                 new UserRole
                 {
-                 UserId = user.Id,
-                 RoleId = role.Id
+                    UserId = user.Id,
+                    RoleId = role.Id
                 });
             context.SaveChanges();
 
@@ -87,16 +88,13 @@ namespace UserRoles
 
         private void pbFotoUser_Click(object sender, EventArgs e)
         {
-            //OpenFileDialog dlg = new OpenFileDialog();
-            //dlg.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) " +
-            //    "| *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            //if (dlg.ShowDialog() == DialogResult.OK)
-            //{
-            //    fileSelected = dlg.FileName;
-            //    //txtSearchFile.Text = dlg.FileName;
-            //    pbFotoUser.Image = Image.FromFile(dlg.FileName);
-            //    //MessageBox.Show(dlg.FileName);
-            //}
+            AddFoto();
+
+
+        }
+
+        public void AddFoto()
+        {
 
             OpenFileDialog dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -113,7 +111,8 @@ namespace UserRoles
                 }
                 var fileSave = Path.Combine(dir, "images", imageName);
                 File.Copy(dlg.FileName, fileSave);
-                pbFotoUser.Image = Image.FromFile($"images/{imageName}");
+
+                pbFotoUser.Image = Image.FromFile(dir);
 
             }
         }

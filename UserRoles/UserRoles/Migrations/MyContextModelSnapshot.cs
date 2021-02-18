@@ -53,7 +53,8 @@ namespace UserRoles.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("Image")
-                        .HasColumnType("text");
+                        .HasColumnType("character varying(255)")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Name")
                         .IsRequired()

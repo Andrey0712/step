@@ -17,7 +17,7 @@ namespace UserRoles.Tabl_Context
         public string Email { get; set; }
         
         public string PhoneNamber { get; set; }
-
+        [StringLength(255)]
         public string Image { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }
 

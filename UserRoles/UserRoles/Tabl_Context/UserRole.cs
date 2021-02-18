@@ -13,5 +13,6 @@ namespace UserRoles.Tabl_Context
 
         public virtual User User { get; set; }
         public virtual Role Role { get; set; }
+       
     }
 }

@@ -34,6 +34,8 @@ namespace UserRoles
             this.labelNewName = new System.Windows.Forms.Label();
             this.textBoxNewNameUser = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.pbChangeFoto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChangeFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // cbUsers
@@ -79,11 +81,21 @@ namespace UserRoles
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // pbChangeFoto
+            // 
+            this.pbChangeFoto.Location = new System.Drawing.Point(342, 31);
+            this.pbChangeFoto.Name = "pbChangeFoto";
+            this.pbChangeFoto.Size = new System.Drawing.Size(233, 152);
+            this.pbChangeFoto.TabIndex = 5;
+            this.pbChangeFoto.TabStop = false;
+            this.pbChangeFoto.Click += new System.EventHandler(this.pbChangeFoto_Click);
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 220);
+            this.ClientSize = new System.Drawing.Size(595, 220);
+            this.Controls.Add(this.pbChangeFoto);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxNewNameUser);
             this.Controls.Add(this.labelNewName);
@@ -91,6 +103,7 @@ namespace UserRoles
             this.Controls.Add(this.cbUsers);
             this.Name = "EditForm";
             this.Text = "EditForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pbChangeFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,5 +116,6 @@ namespace UserRoles
         private System.Windows.Forms.Label labelNewName;
         private System.Windows.Forms.TextBox textBoxNewNameUser;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.PictureBox pbChangeFoto;
     }
 }

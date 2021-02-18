@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace UserRoles.Migrations
 {
-    public partial class Alltbl : Migration
+    public partial class Addall : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,7 @@ namespace UserRoles.Migrations
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     PhoneNamber = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
