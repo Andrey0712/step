@@ -14,7 +14,7 @@ namespace TreeAvto
     public partial class TreeForm : Form
     {
         private readonly MyContext _context;
-        //public TreeForm(MyContext context)
+        
              public TreeForm()
         {
             InitializeComponent();
