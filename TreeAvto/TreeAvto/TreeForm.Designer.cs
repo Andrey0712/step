@@ -31,11 +31,13 @@ namespace TreeAvto
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeViewAvto = new System.Windows.Forms.TreeView();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonAdd);
             this.groupBox1.Controls.Add(this.treeViewAvto);
             this.groupBox1.Location = new System.Drawing.Point(12, 21);
             this.groupBox1.Name = "groupBox1";
@@ -51,6 +53,16 @@ namespace TreeAvto
             this.treeViewAvto.Size = new System.Drawing.Size(333, 305);
             this.treeViewAvto.TabIndex = 0;
             this.treeViewAvto.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewAvto_BeforeExpand);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(360, 22);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(121, 26);
+            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // TreeForm
             // 
@@ -71,6 +83,7 @@ namespace TreeAvto
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView treeViewAvto;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }
 

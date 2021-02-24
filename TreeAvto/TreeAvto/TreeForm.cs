@@ -20,14 +20,11 @@ namespace TreeAvto
             InitializeComponent();
             _context = new MyContext();
             Seeder.SeedDatabase(_context);
-            //TreeForm_Load();
+            
             
         }
 
-        //private void TreeForm_Load()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        
 
         private void TreeForm_Load(object sender, EventArgs e)
         {
@@ -91,6 +88,11 @@ namespace TreeAvto
                 }
                 //MessageBox.Show(parentId.ToString());
             }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            new AddForm().ShowDialog();
         }
     }
 }
