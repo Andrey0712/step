@@ -21,13 +21,15 @@ namespace TreeAvto
             _context = new MyContext();
             Seeder.SeedDatabase(_context);
             
-            
+
+
         }
 
         
 
         private void TreeForm_Load(object sender, EventArgs e)
         {
+            
             var list = _context.Avtos
                 .Where(x => x.ParentId == null)
                 .Select(x => new AvtoVM
@@ -43,6 +45,8 @@ namespace TreeAvto
             }
             treeViewAvto.Focus();
         }
+        
+        
         private void AddParent(AvtoVM avto)
         {
             TreeNode node = new TreeNode();
@@ -55,16 +59,16 @@ namespace TreeAvto
         }
         private void AddChild(TreeNode parent, AvtoVM avto)
         {
-            
-            TreeNode node = new TreeNode();
+
+           TreeNode node = new TreeNode();
             node.Text = avto.Name;
             node.Name = avto.Id.ToString();
             node.Tag = avto;
             node.Nodes.Add("");
             parent.Nodes.Add(node);
         }
-     
 
+        static int id;
         private void treeViewAvto_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             if (e.Node.Nodes[0].Text == "")
@@ -86,13 +90,38 @@ namespace TreeAvto
                 {
                     AddChild(parent, item);
                 }
-                //MessageBox.Show(parentId.ToString());
+                MessageBox.Show(parentId.ToString());
+                id = parentId;
             }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             new AddForm().ShowDialog();
+            
+        }
+
+
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            
+            var edit = _context.Avtos.SingleOrDefault(x => x.Id == id);
+            edit.Name = tbNewName.Text;
+            _context.SaveChanges();
+            treeViewAvto.Nodes.Clear();
+            TreeForm_Load(sender, e);
+        }
+
+        private void btnDell_Click(object sender, EventArgs e)
+        {
+            
+            var del = _context.Avtos.SingleOrDefault(x => x.Id == id);
+            
+            _context.Avtos.Remove(del);
+            _context.SaveChanges();
+            treeViewAvto.Nodes.Clear();
+            TreeForm_Load(sender, e);
         }
     }
 }
