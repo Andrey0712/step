@@ -15,7 +15,7 @@ namespace TreeAvto
     {
         private readonly MyContext _context;
         
-             public TreeForm()
+        public TreeForm()
         {
             InitializeComponent();
             _context = new MyContext();
@@ -90,7 +90,7 @@ namespace TreeAvto
                 {
                     AddChild(parent, item);
                 }
-                MessageBox.Show(parentId.ToString());
+                //MessageBox.Show(parentId.ToString());
                 id = parentId;
             }
         }
@@ -108,6 +108,7 @@ namespace TreeAvto
             
             var edit = _context.Avtos.SingleOrDefault(x => x.Id == id);
             edit.Name = tbNewName.Text;
+
             _context.SaveChanges();
             treeViewAvto.Nodes.Clear();
             TreeForm_Load(sender, e);

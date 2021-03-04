@@ -30,12 +30,12 @@ namespace TreeAvto
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDell = new System.Windows.Forms.Button();
             this.labelNewName = new System.Windows.Forms.Label();
             this.tbNewName = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.treeViewAvto = new System.Windows.Forms.TreeView();
-            this.btnDell = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,16 @@ namespace TreeAvto
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // btnDell
+            // 
+            this.btnDell.Location = new System.Drawing.Point(360, 157);
+            this.btnDell.Name = "btnDell";
+            this.btnDell.Size = new System.Drawing.Size(121, 23);
+            this.btnDell.TabIndex = 5;
+            this.btnDell.Text = "Удалить узел";
+            this.btnDell.UseVisualStyleBackColor = true;
+            this.btnDell.Click += new System.EventHandler(this.btnDell_Click);
             // 
             // labelNewName
             // 
@@ -97,16 +107,6 @@ namespace TreeAvto
             this.treeViewAvto.Size = new System.Drawing.Size(333, 305);
             this.treeViewAvto.TabIndex = 0;
             this.treeViewAvto.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewAvto_BeforeExpand);
-            // 
-            // btnDell
-            // 
-            this.btnDell.Location = new System.Drawing.Point(360, 157);
-            this.btnDell.Name = "btnDell";
-            this.btnDell.Size = new System.Drawing.Size(121, 23);
-            this.btnDell.TabIndex = 5;
-            this.btnDell.Text = "Удалить узел";
-            this.btnDell.UseVisualStyleBackColor = true;
-            this.btnDell.Click += new System.EventHandler(this.btnDell_Click);
             // 
             // TreeForm
             // 
