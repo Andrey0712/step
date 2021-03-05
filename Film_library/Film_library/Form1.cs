@@ -12,6 +12,7 @@ namespace Film_library
 {
     public partial class Form1 : Form
     {
+        
         private readonly MyContext _context;
         public Form1()
         {
@@ -19,10 +20,13 @@ namespace Film_library
             Seeder.SeedDatabase(_context);
             InitializeComponent();
             loadFromData();
+           
         }
-
+        
+        
         private void loadFromData()
         {
+            
             dataGridView1.Rows.Clear();
             var query = _context.Films
                .AsQueryable();
@@ -63,7 +67,9 @@ namespace Film_library
 
         private void btnFiltrForm_Click(object sender, EventArgs e)
         {
-            FilterForm dlg = new FilterForm(_context);
+            //int col = int.Parse(tbTotal.Text);
+            // FilterForm dlg = new FilterForm(col);
+            FilterForm dlg = new FilterForm();
             dlg.ShowDialog();
         }
     }

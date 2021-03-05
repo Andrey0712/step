@@ -37,6 +37,8 @@ namespace Film_library
             this.ColRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.butAddFilm = new System.Windows.Forms.Button();
             this.btnFiltrForm = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,29 +88,49 @@ namespace Film_library
             // 
             // butAddFilm
             // 
-            this.butAddFilm.Location = new System.Drawing.Point(12, 384);
+            this.butAddFilm.Location = new System.Drawing.Point(301, 379);
             this.butAddFilm.Name = "butAddFilm";
-            this.butAddFilm.Size = new System.Drawing.Size(101, 30);
+            this.butAddFilm.Size = new System.Drawing.Size(155, 30);
             this.butAddFilm.TabIndex = 1;
-            this.butAddFilm.Text = "Add film";
+            this.butAddFilm.Text = "Добавить фильм";
             this.butAddFilm.UseVisualStyleBackColor = true;
             this.butAddFilm.Click += new System.EventHandler(this.butAddFilm_Click);
             // 
             // btnFiltrForm
             // 
-            this.btnFiltrForm.Location = new System.Drawing.Point(137, 384);
+            this.btnFiltrForm.Location = new System.Drawing.Point(303, 415);
             this.btnFiltrForm.Name = "btnFiltrForm";
-            this.btnFiltrForm.Size = new System.Drawing.Size(99, 30);
+            this.btnFiltrForm.Size = new System.Drawing.Size(153, 30);
             this.btnFiltrForm.TabIndex = 2;
-            this.btnFiltrForm.Text = "Filtr form";
+            this.btnFiltrForm.Text = "Добавить фильтр";
             this.btnFiltrForm.UseVisualStyleBackColor = true;
             this.btnFiltrForm.Click += new System.EventHandler(this.btnFiltrForm_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 419);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Форма для добавления новых фильтров";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 387);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(263, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Форма для добавления новых фильмов в базу";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFiltrForm);
             this.Controls.Add(this.butAddFilm);
             this.Controls.Add(this.dataGridView1);
@@ -116,6 +138,7 @@ namespace Film_library
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,6 +152,8 @@ namespace Film_library
         private System.Windows.Forms.DataGridViewTextBoxColumn ColGanr;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRating;
         private System.Windows.Forms.Button btnFiltrForm;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
