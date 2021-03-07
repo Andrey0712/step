@@ -11,13 +11,11 @@ namespace Film_library
 {
     public partial class FilterForm : Form
     {
-        //List<string[]> filterValues = new List<string[]>();
+        
         MyContext context = new MyContext();
-        //List<string> fValues = new List<string>();
-        //private readonly MyContext _context;
-         //int numb = int.Parse(Form1.);
+       
         public FilterForm()
-            //public FilterForm(int col)
+            
         {
             InitializeComponent();
 
@@ -35,7 +33,9 @@ namespace Film_library
 
         private void btnSaveFiltr_Click(object sender, EventArgs e)
         {
-            string[] filterNames = {tbNameFiltr.Text};
+            if (string.IsNullOrEmpty(tbNameFiltr.Text) && tbFiltrVal1.Text != null)
+            {
+                string[] filterNames = {tbNameFiltr.Text};
             foreach (var type in filterNames)
             {
                 if (context.FilterNames.SingleOrDefault(f => f.Name == type) == null)
@@ -51,7 +51,7 @@ namespace Film_library
 
 
             List<string[]> filterValues = new List<string[]>
-            {                new string[] { tbFiltrVal1.Text, tbFiltrVal2.Text } };
+            {                new string[] { tbFiltrVal1.Text } };
 
             foreach (var items in filterValues)
             {
@@ -91,7 +91,11 @@ namespace Film_library
                     }
                 }
             }
-
+            }
+            else
+            {
+                MessageBox.Show("Не все поля запонены!");
+            }
             this.Close();
 
 
