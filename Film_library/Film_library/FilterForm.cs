@@ -20,26 +20,17 @@ namespace Film_library
             //public FilterForm(int col)
         {
             InitializeComponent();
-            //int positionY = 10;
-            //int dx = 25;
-            //gbFilterVal.Controls.Clear();
-            //for (int i = 1; i <= col; i++)
-            //{
-            //    TextBox textBox = new TextBox();
 
-            //    textBox.Location = new System.Drawing.Point(10, positionY);
-            //    textBox.Name = $"tbFiltrVal{i}";
-            //    textBox.Size = new System.Drawing.Size(100, 10);
-
-            //    gbFilterVal.Controls.Add(textBox);
-
-            //    filterValues.Add(textBox.Name.ToString());
-                
-            //    positionY += dx;
-
-
-            //}
-            //var filters = GetListFilters();
+            foreach (var filterName in context.FilterNames)
+            {
+                CustomComboBoxItem item = new CustomComboBoxItem
+                {
+                    Id = filterName.Id,
+                    Name = filterName.Name
+                };
+                cbFilterCategory.Items.Add(item);
+            }
+           
         }
 
         private void btnSaveFiltr_Click(object sender, EventArgs e)
@@ -60,7 +51,7 @@ namespace Film_library
 
 
             List<string[]> filterValues = new List<string[]>
-            {                new string[] { tbFiltrVal1.Text, tbFiltrVal2.Text, tbFiltrVal3.Text, tbFiltrVal4.Text } };
+            {                new string[] { tbFiltrVal1.Text, tbFiltrVal2.Text } };
 
             foreach (var items in filterValues)
             {
@@ -105,6 +96,36 @@ namespace Film_library
 
 
 
+        }
+
+        private void btnSaveCategory_Click(object sender, EventArgs e)
+        {
+            
+            context.FilterValues.Add(
+               new FilterValue
+               {
+                  Name = tbFiltrVal3.Text
+               });
+            context.SaveChanges();
+            var name_filtr_Id = context.FilterNames
+                .SingleOrDefault(x => x.Name == cbFilterCategory.SelectedItem.ToString()).Id;
+            var value_film_Id = context.FilterValues
+                .SingleOrDefault(x => x.Name == tbFiltrVal3.Text).Id;
+             
+
+            if (context.FilterNameGroups
+                .SingleOrDefault(x => x.FilterValueId == name_filtr_Id
+                && x.FilterNameId == name_filtr_Id) == null)
+            {
+                context.FilterNameGroups.Add(
+                    new FilterNameGroup
+                    {
+                        FilterNameId = name_filtr_Id,
+                        FilterValueId = value_film_Id
+                    });
+                context.SaveChanges();
+            }
+            this.Close();
         }
     }
 }

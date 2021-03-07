@@ -36,7 +36,10 @@ namespace Film_library
             this.btnSaveFiltr = new System.Windows.Forms.Button();
             this.tbFiltrVal2 = new System.Windows.Forms.TextBox();
             this.tbFiltrVal3 = new System.Windows.Forms.TextBox();
-            this.tbFiltrVal4 = new System.Windows.Forms.TextBox();
+            this.labelAddCategory = new System.Windows.Forms.Label();
+            this.cbFilterCategory = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSaveCategory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelNameFiltr
@@ -73,7 +76,7 @@ namespace Film_library
             // 
             // btnSaveFiltr
             // 
-            this.btnSaveFiltr.Location = new System.Drawing.Point(12, 281);
+            this.btnSaveFiltr.Location = new System.Drawing.Point(12, 182);
             this.btnSaveFiltr.Name = "btnSaveFiltr";
             this.btnSaveFiltr.Size = new System.Drawing.Size(190, 23);
             this.btnSaveFiltr.TabIndex = 4;
@@ -90,24 +93,56 @@ namespace Film_library
             // 
             // tbFiltrVal3
             // 
-            this.tbFiltrVal3.Location = new System.Drawing.Point(38, 185);
+            this.tbFiltrVal3.Location = new System.Drawing.Point(38, 326);
             this.tbFiltrVal3.Name = "tbFiltrVal3";
             this.tbFiltrVal3.Size = new System.Drawing.Size(113, 23);
             this.tbFiltrVal3.TabIndex = 6;
             // 
-            // tbFiltrVal4
+            // labelAddCategory
             // 
-            this.tbFiltrVal4.Location = new System.Drawing.Point(38, 225);
-            this.tbFiltrVal4.Name = "tbFiltrVal4";
-            this.tbFiltrVal4.Size = new System.Drawing.Size(114, 23);
-            this.tbFiltrVal4.TabIndex = 7;
+            this.labelAddCategory.AutoSize = true;
+            this.labelAddCategory.Location = new System.Drawing.Point(19, 232);
+            this.labelAddCategory.Name = "labelAddCategory";
+            this.labelAddCategory.Size = new System.Drawing.Size(183, 15);
+            this.labelAddCategory.TabIndex = 8;
+            this.labelAddCategory.Text = "Добавить категорию в  фильтр :";
+            // 
+            // cbFilterCategory
+            // 
+            this.cbFilterCategory.FormattingEnabled = true;
+            this.cbFilterCategory.Location = new System.Drawing.Point(38, 261);
+            this.cbFilterCategory.Name = "cbFilterCategory";
+            this.cbFilterCategory.Size = new System.Drawing.Size(121, 23);
+            this.cbFilterCategory.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(37, 296);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Введите новую категорию :";
+            // 
+            // btnSaveCategory
+            // 
+            this.btnSaveCategory.Location = new System.Drawing.Point(12, 367);
+            this.btnSaveCategory.Name = "btnSaveCategory";
+            this.btnSaveCategory.Size = new System.Drawing.Size(190, 23);
+            this.btnSaveCategory.TabIndex = 11;
+            this.btnSaveCategory.Text = "Сохранить категорию";
+            this.btnSaveCategory.UseVisualStyleBackColor = true;
+            this.btnSaveCategory.Click += new System.EventHandler(this.btnSaveCategory_Click);
             // 
             // FilterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 316);
-            this.Controls.Add(this.tbFiltrVal4);
+            this.ClientSize = new System.Drawing.Size(231, 405);
+            this.Controls.Add(this.btnSaveCategory);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbFilterCategory);
+            this.Controls.Add(this.labelAddCategory);
             this.Controls.Add(this.tbFiltrVal3);
             this.Controls.Add(this.tbFiltrVal2);
             this.Controls.Add(this.btnSaveFiltr);
@@ -132,6 +167,9 @@ namespace Film_library
         private System.Windows.Forms.Button btnSaveFiltr;
         private System.Windows.Forms.TextBox tbFiltrVal2;
         private System.Windows.Forms.TextBox tbFiltrVal3;
-        private System.Windows.Forms.TextBox tbFiltrVal4;
+        private System.Windows.Forms.Label labelAddCategory;
+        private System.Windows.Forms.ComboBox cbFilterCategory;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSaveCategory;
     }
 }

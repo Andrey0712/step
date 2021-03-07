@@ -57,6 +57,15 @@ namespace Film_library
                     .Add(row);
 
             }
+            foreach (var filterName in _context.FilterNames)
+            {
+                CustomComboBoxItem item = new CustomComboBoxItem
+                {
+                    Id = filterName.Id,
+                    Name = filterName.Name
+                };
+                cbFiltrName.Items.Add(item);
+            }
         }
 
         private void butAddFilm_Click(object sender, EventArgs e)
