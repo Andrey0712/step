@@ -52,10 +52,10 @@ namespace Film_library
             this.ColDirector,
             this.ColGanr,
             this.ColRating});
-            this.dataGridView1.Location = new System.Drawing.Point(139, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(170, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(651, 366);
+            this.dataGridView1.Size = new System.Drawing.Size(620, 299);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColId
@@ -128,7 +128,7 @@ namespace Film_library
             // cbFiltrName
             // 
             this.cbFiltrName.FormattingEnabled = true;
-            this.cbFiltrName.Location = new System.Drawing.Point(3, 12);
+            this.cbFiltrName.Location = new System.Drawing.Point(528, 398);
             this.cbFiltrName.Name = "cbFiltrName";
             this.cbFiltrName.Size = new System.Drawing.Size(121, 23);
             this.cbFiltrName.TabIndex = 6;
