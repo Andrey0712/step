@@ -111,7 +111,25 @@ namespace Film_library
 
             #endregion
 
+            #region tblFilters -Фільтри
+            Filter[] filters =
+            {
+                new Filter { FilterNameId = 1, FilterValueId=1, FilmId=1 },
+                new Filter { FilterNameId = 2, FilterValueId=10, FilmId=1 },
 
+                //new Filter { FilterNameId = 1, FilterValueId=2, ProductId=2 },
+                //new Filter { FilterNameId = 2, FilterValueId=6, ProductId=2 }
+            };
+            foreach (var item in filters)
+            {
+                var f = context.Filters.SingleOrDefault(p => p == item);
+                if (f == null)
+                {
+                    context.Filters.Add(new Filter { FilterNameId = item.FilterNameId, FilterValueId = item.FilterValueId, FilmId = item.FilmId });
+                    context.SaveChanges();
+                }
+            }
+            #endregion
         }
 
         #endregion
