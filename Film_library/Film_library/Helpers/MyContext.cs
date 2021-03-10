@@ -13,6 +13,7 @@ namespace Film_library
         public DbSet<FilterName> FilterNames { get; set; }
         public DbSet<FilterValue> FilterValues { get; set; }
         public DbSet<FilterNameGroup> FilterNameGroups { get; set; }
+        public DbSet<Filter> Filters { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 optionsBuilder.UseNpgsql("Server=91.238.103.51;Port=5743;Database=andreydb;Username=andrey;Password=$544$B77w**G)K$t!Ube22}xa");
@@ -36,6 +37,26 @@ namespace Film_library
                 filterNG.HasOne(ur => ur.FilterValueOf)
                     .WithMany(r => r.FilterNameGroups)
                     .HasForeignKey(ur => ur.FilterValueId)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<Filter>(filter =>
+            {
+                filter.HasKey(f => new { f.FilmId, f.FilterValueId, f.FilterNameId });
+
+                filter.HasOne(ur => ur.FilterNameOf)
+                    .WithMany(r => r.Filters)
+                    .HasForeignKey(ur => ur.FilterNameId)
+                    .IsRequired();
+
+                filter.HasOne(ur => ur.FilterValueOf)
+                    .WithMany(r => r.Filters)
+                    .HasForeignKey(ur => ur.FilterValueId)
+                    .IsRequired();
+
+                filter.HasOne(ur => ur.FilmOf)
+                    .WithMany(r => r.Filters)
+                    .HasForeignKey(ur => ur.FilmId)
                     .IsRequired();
             });
 

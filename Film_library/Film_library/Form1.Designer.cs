@@ -39,6 +39,7 @@ namespace Film_library
             this.btnFiltrForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +89,7 @@ namespace Film_library
             // 
             // butAddFilm
             // 
-            this.butAddFilm.Location = new System.Drawing.Point(301, 379);
+            this.butAddFilm.Location = new System.Drawing.Point(635, 326);
             this.butAddFilm.Name = "butAddFilm";
             this.butAddFilm.Size = new System.Drawing.Size(155, 30);
             this.butAddFilm.TabIndex = 1;
@@ -98,7 +99,7 @@ namespace Film_library
             // 
             // btnFiltrForm
             // 
-            this.btnFiltrForm.Location = new System.Drawing.Point(303, 415);
+            this.btnFiltrForm.Location = new System.Drawing.Point(637, 373);
             this.btnFiltrForm.Name = "btnFiltrForm";
             this.btnFiltrForm.Size = new System.Drawing.Size(153, 30);
             this.btnFiltrForm.TabIndex = 2;
@@ -109,7 +110,7 @@ namespace Film_library
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 419);
+            this.label1.Location = new System.Drawing.Point(382, 381);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 15);
             this.label1.TabIndex = 4;
@@ -118,22 +119,35 @@ namespace Film_library
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 387);
+            this.label2.Location = new System.Drawing.Point(349, 334);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "Форма для добавления новых фильмов в базу";
             // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(12, 373);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(143, 23);
+            this.btnFind.TabIndex = 6;
+            this.btnFind.Text = "Применить фиьтры";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 450);
+            this.ClientSize = new System.Drawing.Size(817, 414);
+            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFiltrForm);
             this.Controls.Add(this.butAddFilm);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -154,6 +168,7 @@ namespace Film_library
         private System.Windows.Forms.Button btnFiltrForm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFind;
     }
 }
 

@@ -22,5 +22,6 @@ namespace Film_library
         [StringLength(500)]
         public string Actors { get; set; }
         public int Rating { get; set; }
+        public virtual ICollection<Filter> Filters { get; set; }
     }
 }
