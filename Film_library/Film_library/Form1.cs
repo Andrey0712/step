@@ -62,15 +62,7 @@ namespace Film_library
                     .Add(row);
 
             }
-            foreach (var filterName in _context.FilterNames)
-            {
-                CustomComboBoxItem item = new CustomComboBoxItem
-                {
-                    Id = filterName.Id,
-                    Name = filterName.Name
-                };
-                cbFiltrName.Items.Add(item);
-            }
+           
 
             var filters = GetFilterNameModels();
             FillCheckedList(filters);
@@ -138,7 +130,7 @@ namespace Film_library
         {
             GroupBox gbFilter;
             CheckedListBox listBox;
-            int dy = 13;
+            int dy = 10;
             foreach (var item in models)
             {
                 gbFilter = new System.Windows.Forms.GroupBox();
@@ -148,9 +140,9 @@ namespace Film_library
                 // gbFilter
                 // 
                 gbFilter.Controls.Add(listBox);
-                gbFilter.Location = new System.Drawing.Point(13, dy);
+                gbFilter.Location = new System.Drawing.Point(10, dy);
                 gbFilter.Name = $"gbFilter{item.Id}";
-                gbFilter.Size = new System.Drawing.Size(222, 217);
+                gbFilter.Size = new System.Drawing.Size(150, 100);
                 gbFilter.TabIndex = 0;
                 gbFilter.TabStop = false;
                 gbFilter.Text = item.Name;
@@ -163,7 +155,7 @@ namespace Film_library
                 listBox.FormattingEnabled = true;
                 listBox.Location = new System.Drawing.Point(0, 30);
                 listBox.Name = $"listBox{item.Id}";
-                listBox.Width = 208;
+                listBox.Width = 100;
                 listBox.TabIndex = 0;
 
                 foreach (var child in item.Children)
@@ -182,6 +174,8 @@ namespace Film_library
         {
             var groupBox = (sender as GroupBox);
             var FilterName = groupBox.Tag as FilterNameModel;
+            var checkedList = groupBox.Controls.OfType<CheckedListBox>().FirstOrDefault();
+
             if (FilterName.IsCollapsed)
             {
                 FilterName.IsCollapsed = false;
@@ -192,11 +186,13 @@ namespace Film_library
 
             }
 
-            var checkedList = groupBox.Controls.OfType<CheckedListBox>().FirstOrDefault();
+           
 
             checkedList.Visible = FilterName.IsCollapsed;
             var Height = FilterName.IsCollapsed == true ? checkedList.Height + 30 : 30;
             groupBox.Height = Height;
+
+
 
             ShowAllGroups(this.Controls.OfType<GroupBox>());
 

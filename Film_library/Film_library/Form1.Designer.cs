@@ -39,7 +39,6 @@ namespace Film_library
             this.btnFiltrForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbFiltrName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,20 +124,11 @@ namespace Film_library
             this.label2.TabIndex = 5;
             this.label2.Text = "Форма для добавления новых фильмов в базу";
             // 
-            // cbFiltrName
-            // 
-            this.cbFiltrName.FormattingEnabled = true;
-            this.cbFiltrName.Location = new System.Drawing.Point(528, 398);
-            this.cbFiltrName.Name = "cbFiltrName";
-            this.cbFiltrName.Size = new System.Drawing.Size(121, 23);
-            this.cbFiltrName.TabIndex = 6;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
-            this.Controls.Add(this.cbFiltrName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFiltrForm);
@@ -164,7 +154,6 @@ namespace Film_library
         private System.Windows.Forms.Button btnFiltrForm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbFiltrName;
     }
 }
 
