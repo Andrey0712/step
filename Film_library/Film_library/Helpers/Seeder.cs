@@ -117,8 +117,8 @@ namespace Film_library
                 new Filter { FilterNameId = 1, FilterValueId=1, FilmId=1 },
                 new Filter { FilterNameId = 2, FilterValueId=10, FilmId=1 },
 
-                //new Filter { FilterNameId = 1, FilterValueId=2, ProductId=2 },
-                //new Filter { FilterNameId = 2, FilterValueId=6, ProductId=2 }
+                new Filter { FilterNameId = 1, FilterValueId=2, FilmId=2 },
+                new Filter { FilterNameId = 2, FilterValueId=9, FilmId=2 }
             };
             foreach (var item in filters)
             {

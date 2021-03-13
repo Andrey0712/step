@@ -28,5 +28,12 @@ namespace Film_library
             context.SaveChanges();
             this.Close();
         }
+
+        private void btnAddFiltrToFilm_Click(object sender, EventArgs e)
+        {
+            AddFilmToFiltr dlg = new AddFilmToFiltr();
+            dlg.ShowDialog();
+            this.Close();
+        }
     }
 }

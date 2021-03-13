@@ -38,6 +38,7 @@ namespace Film_library
             this.tbGanre = new System.Windows.Forms.TextBox();
             this.tbRating = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnAddFiltrToFilm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelName
@@ -106,7 +107,7 @@ namespace Film_library
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(271, 166);
+            this.btnSave.Location = new System.Drawing.Point(271, 167);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -114,11 +115,22 @@ namespace Film_library
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnAddFiltrToFilm
+            // 
+            this.btnAddFiltrToFilm.Location = new System.Drawing.Point(106, 167);
+            this.btnAddFiltrToFilm.Name = "btnAddFiltrToFilm";
+            this.btnAddFiltrToFilm.Size = new System.Drawing.Size(126, 23);
+            this.btnAddFiltrToFilm.TabIndex = 9;
+            this.btnAddFiltrToFilm.Text = "Назначить фильтр";
+            this.btnAddFiltrToFilm.UseVisualStyleBackColor = true;
+            this.btnAddFiltrToFilm.Click += new System.EventHandler(this.btnAddFiltrToFilm_Click);
+            // 
             // AddFilmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 240);
+            this.Controls.Add(this.btnAddFiltrToFilm);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tbRating);
             this.Controls.Add(this.tbGanre);
@@ -148,5 +160,6 @@ namespace Film_library
         private System.Windows.Forms.TextBox tbGanre;
         private System.Windows.Forms.TextBox tbRating;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnAddFiltrToFilm;
     }
 }

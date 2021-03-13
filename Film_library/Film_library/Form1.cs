@@ -1,4 +1,5 @@
-﻿using Film_library.Models;
+﻿using Film_library.Helpers;
+using Film_library.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,13 +64,14 @@ namespace Film_library
 
             }
            
-
+             //список фільтрів
             var filters = GetFilterNameModels();
             FillCheckedList(filters);
 
         }
 
-        private IEnumerable<FilterNameModel> GetFilterNameModels()
+        
+        public IEnumerable<FilterNameModel> GetFilterNameModels()
         {
             List<FilterNameModel> filterNameModels = new List<FilterNameModel>();
             //  Витягуємо елементи FilterName з БД
@@ -237,51 +239,53 @@ namespace Film_library
                     //Збираємо значення id чекнутых фільтрів
                     var data = listItem as FilterValueModel;
                     values.Add(data.Id);
-                    MessageBox.Show($"{ data.Name}");
+                    //MessageBox.Show($"{ data.Name}");
                 }
             }
-            //var filtersList = GetFilterNameModels();
-            //int[] filterValueSearchList = values.ToArray();
+            //var filters = GetFilterNameModels();
+            var filtersList = GetFilterNameModels();
+            int[] filterValueSearchList = values.ToArray();
 
-            //var query = _context
-            //        .Films
-            //        .AsQueryable();
+            var query = _context
+                    .Films
+                    .AsQueryable();
 
-            //foreach (var fName in filtersList)
-            //{
-            //    int countFilter = 0; //Кількість співпадінь у даній групі фільтрів
-            //    var predicate = PredicateBuilder.False<Film>();
-            //    foreach (var fValue in fName.Children)
-            //    {
-            //        for (int i = 0; i < filterValueSearchList.Length; i++)
-            //        {
-            //            var idV = fValue.Id; //id - значення фільтра
-            //            if (filterValueSearchList[i] == idV) //маємо співпадіння
-            //            {
-            //                predicate = predicate
-            //                    .Or(p => p.Filters
-            //                        .Any(f => f.FilterValueId == idV));
-            //                countFilter++;
-            //            }
-            //        }
-            //    }
-            //    if (countFilter != 0)
-            //        query = query.Where(predicate);
-            //}
+            foreach (var fName in filtersList)
+            {
+                int countFilter = 0; //Кількість співпадінь у даній групі фільтрів
+                var predicate = PredicateBuilder.False<Film>();
+                foreach (var fValue in fName.Children)
+                {
+                    for (int i = 0; i < filterValueSearchList.Length; i++)
+                    {
+                        var idV = fValue.Id; //id - значення фільтра
+                        if (filterValueSearchList[i] == idV) //маємо співпадіння
+                        {
+                            predicate = predicate
+                                .Or(p => p.Filters
+                                    .Any(f => f.FilterValueId == idV));
+                            countFilter++;
+                        }
+                    }
+                }
+                if (countFilter != 0)
+                    query = query.Where(predicate);
+            }
 
-            //var listProduct = query.ToList();
-            //dgvProducts.Rows.Clear();
-            //foreach (var p in listProduct)
-            //{
-            //    object[] row =
-            //    {
-            //        p.Id,
-            //        null,
-            //        p.Name,
-            //        p.Price
-            //    };
-            //    dgvProducts.Rows.Add(row);
-            //}
+            var listProduct = query.ToList();
+            dataGridView1.Rows.Clear();
+            foreach (var p in listProduct)
+            {
+                object[] row =
+                {
+                    p.Id,
+                    p.Name,
+                    p.Director,
+                    p.Genre,
+                    p.Rating
+                };
+                dataGridView1.Rows.Add(row);
+            }
         }
     }
 }
